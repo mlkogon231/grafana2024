@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafana Cloud Infrastructure Demo - Access Policy Implementation</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prismjs/1.29.0/prism.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prismjs/1.29.0/themes/prism.min.css">
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-800 mb-4">Grafana Cloud Infrastructure Demo</h1>
+            <p class="text-xl text-gray-600">Access Policy Implementation for Enterprise Observability</p>
+        </header>
+
+        <section class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Project Overview</h2>
+            <p class="text-gray-700 mb-4">
+                Implemented a comprehensive observability stack using Grafana Cloud (mkogondevops) with granular access control policies for enterprise-grade monitoring and observability.
+            </p>
+            
+            <div class="bg-gray-50 rounded p-4 mb-6">
+                <h3 class="font-semibold mb-2">Key Features:</h3>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Segregated access policies for different telemetry types</li>
+                    <li>Role-based access control (RBAC)</li>
+                    <li>Complete observability coverage</li>
+                    <li>Enterprise-grade security practices</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Access Policy Architecture</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Metrics Policy -->
+                <div class="bg-blue-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-blue-800 mb-2">Metrics Policy</h3>
+                    <p>Controlled access to time-series metrics data with:</p>
+                    <ul class="list-disc pl-6 mt-2">
+                        <li>Query permissions</li>
+                        <li>Dashboard access</li>
+                        <li>Alert configuration</li>
+                    </ul>
+                </div>
+                
+                <!-- Logs Policy -->
+                <div class="bg-green-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-green-800 mb-2">Logs Policy</h3>
+                    <p>Managed log data access with:</p>
+                    <ul class="list-disc pl-6 mt-2">
+                        <li>Log query permissions</li>
+                        <li>Log exploration</li>
+                        <li>Log analytics</li>
+                    </ul>
+                </div>
+                
+                <!-- Admin Read Policy -->
+                <div class="bg-purple-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-purple-800 mb-2">Admin Read Policy</h3>
+                    <p>Read-only administrative access:</p>
+                    <ul class="list-disc pl-6 mt-2">
+                        <li>Configuration viewing</li>
+                        <li>User management review</li>
+                        <li>System status monitoring</li>
+                    </ul>
+                </div>
+                
+                <!-- Admin Write Policy -->
+                <div class="bg-red-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-red-800 mb-2">Admin Write Policy</h3>
+                    <p>Full administrative control:</p>
+                    <ul class="list-disc pl-6 mt-2">
+                        <li>System configuration</li>
+                        <li>User management</li>
+                        <li>Policy administration</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Implementation Example</h2>
+            <pre class="rounded-lg"><code class="language-yaml">
+# Example Grafana Access Policy Configuration
+apiVersion: v1
+kind: AccessPolicy
+metadata:
+  name: metrics-policy
+spec:
+  permissions:
+    - resource: "metrics"
+      actions: ["query", "explore"]
+    - resource: "dashboards"
+      actions: ["view", "edit"]
+---
+apiVersion: v1
+kind: AccessPolicy
+metadata:
+  name: logs-policy
+spec:
+  permissions:
+    - resource: "logs"
+      actions: ["query", "explore"]
+    - resource: "log-analytics"
+      actions: ["view"]
+            </code></pre>
+        </section>
+
+        <section class="bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-2xl font-semibold mb-4">Technical Benefits</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="p-4 border rounded-lg">
+                    <h3 class="font-semibold mb-2">Security</h3>
+                    <p>Granular access control with principle of least privilege</p>
+                </div>
+                <div class="p-4 border rounded-lg">
+                    <h3 class="font-semibold mb-2">Scalability</h3>
+                    <p>Easy to extend and modify policies as team grows</p>
+                </div>
+                <div class="p-4 border rounded-lg">
+                    <h3 class="font-semibold mb-2">Compliance</h3>
+                    <p>Audit-ready access management</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
